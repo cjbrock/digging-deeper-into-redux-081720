@@ -1,18 +1,22 @@
 import { createStore } from 'redux'
 
 const todos = [
-  {id: 1, name: "Fix air conditioning"},
-  {id: 2, name: "Start final project"},
-  {id: 3, name: "Teach study group"},
-  {id: 4, name: "Finish labs"},
-  {id: 5, name: "Learn Redux"},
-  {id: 6, name: "Get shit together"},
-  {id: 7, name: "Try not to cry at final one on ones"}
+  {id: 1, name: "Fix air conditioning", complete: true},
+  {id: 2, name: "Start final project", complete: false},
+  {id: 3, name: "Teach study group", complete: false},
+  {id: 4, name: "Finish labs", complete: false},
+  {id: 5, name: "Learn Redux", complete: true},
+  {id: 6, name: "Get shit together", complete: false},
+  {id: 7, name: "Try not to cry at final one on ones", complete: false}
 ]
 
 
 function todosReducer(state = todos, action) {
   switch (action.type) {
+    case "TOGGLE_TODO":
+      // do whatever we need to when the action is dispatched
+      const newState = state.map(todo => todo.id == action.payload ? { ...todo, complete: !todo.complete } : todo)
+      return newState
     default:
       return state
   }

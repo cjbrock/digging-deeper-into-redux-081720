@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import logo from './logo.svg';
-import Todos from './Todos'
+import CompleteTodos from './CompleteTodos'
+import IncompleteTodos from './IncompleteTodos'
 import Navbar from './Navbar'
 import './App.css';
 
@@ -11,7 +12,8 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar  />
-        <Todos />
+        <CompleteTodos />
+        <IncompleteTodos />
       </div>
     );
   }
